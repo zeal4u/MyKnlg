@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shell,linux," />
+  <meta name="keywords" content="shell,linux，空格," />
 
 
 
@@ -79,7 +79,7 @@ else
 fi
 ‘if’和’[‘中括号之间、中括号和表达式之间要有空格，这是众所周知的。
 今天我发现如果表达式是一个等式判断，那么‘=’两端也需要空格，调试了半">
-<meta property="og:updated_time" content="2016-05-27T13:15:59.855Z">
+<meta property="og:updated_time" content="2016-05-27T13:45:01.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell编程初识">
 <meta name="twitter:description" content="捉弄人的空格今天做linux的shell编程实验发现，shell 中 if 判断句真是一个挺要注意的部分。
@@ -200,6 +200,16 @@ fi
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -264,8 +274,8 @@ fi
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux，空格/" itemprop="url" rel="index">
-                    <span itemprop="name">linux，空格</span>
+                  <a href="/categories/linux-shell/" itemprop="url" rel="index">
+                    <span itemprop="name">linux/shell</span>
                   </a>
                 </span>
 
@@ -309,7 +319,7 @@ fi
 <p>无独有偶，我昨天在配置博客时，也遇到了配置文件属性配置了却没有生效的问题，原因也是属性和之间虽然有<em>‘：’</em>相隔，但还是需要添加一个额外的空格才能使之生效。</p>
 <pre><code>deploy:
   type: git #此处有一空格
-</code></pre><p>同样的为了让我这个博客的主题生效，所有md标题的’#’和内容之间也需要加一个空格，然而这是一般的markdown所必须的。</p>
+</code></pre><p>同样的为了让我这个博客的主题生效，所有md标题的’#’和内容之间也需要加一个空格，然而这不是一般的markdown所必须的。</p>
 
       
     </div>
@@ -324,7 +334,7 @@ fi
       
         <div class="post-tags">
           
-            <a href="/tags/shell-linux/" rel="tag">#shell,linux</a>
+            <a href="/tags/shell-linux，空格/" rel="tag">#shell,linux，空格</a>
           
         </div>
       
@@ -333,8 +343,8 @@ fi
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/27/友情链接/" rel="next" title="友情链接">
-                <i class="fa fa-chevron-left"></i> 友情链接
+              <a href="/2016/05/26/Hello/" rel="next" title="Hello">
+                <i class="fa fa-chevron-left"></i> Hello
               </a>
             
           </div>
@@ -386,28 +396,19 @@ fi
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/default_avatar.jpg"
-               alt="Jiang Shizhi" />
-          <p class="site-author-name" itemprop="name">Jiang Shizhi</p>
+               src="/images/my_avtar.jpg"
+               alt="Zeal4u" />
+          <p class="site-author-name" itemprop="name">Zeal4u</p>
           <p class="site-description motion-element" itemprop="description">仅供自用</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -424,7 +425,7 @@ fi
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -444,21 +445,23 @@ fi
         
         <div class="links-of-blogroll motion-element">
           
+            <div class="links-of-blogroll-title">友情链接</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ml3426.me/" target="_blank">ml3426</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://example.com/" target="_blank">zaran</a>
+                </li>
+              
+            </ul>
+          
         </div>
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#捉弄人的空格"><span class="nav-text">捉弄人的空格</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -478,7 +481,7 @@ fi
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Jiang Shizhi</span>
+  <span class="author" itemprop="copyrightHolder">Zeal4u</span>
 </div>
 
 <div class="powered-by">
