@@ -226,6 +226,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/28/I-O-Structure/" itemprop="url">
+                  I/O Structure
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-28T15:32:38+08:00" content="2016-05-28">
+              2016-05-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Operating-System/" itemprop="url" rel="index">
+                    <span itemprop="name">Operating System</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Operating-System/I-O/" itemprop="url" rel="index">
+                    <span itemprop="name">I/O</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="两种基本的I-O结构"><a href="#两种基本的I-O结构" class="headerlink" title="两种基本的I/O结构"></a>两种基本的I/O结构</h2><h3 id="Synchronous-Only-upon-I-O-completion"><a href="#Synchronous-Only-upon-I-O-completion" class="headerlink" title="Synchronous: Only upon I/O completion"></a>Synchronous: Only upon I/O completion</h3><p>Wait instruction idles the CPU</p>
+<p>Wait loop</p>
+<h3 id="Asynchronous-Without-waiting-for-I-O-completion"><a href="#Asynchronous-Without-waiting-for-I-O-completion" class="headerlink" title="Asynchronous: Without waiting for I/O completion"></a>Asynchronous: Without waiting for I/O completion</h3><p>System call</p>
+<p>Device-status table</p>
+<p>示意图如下 <img src="/2016/05/28/I-O-Structure/example.jpg" alt="example.jpg" title=""></p>
+<h2 id="别忘了-Direct-Memory-Access"><a href="#别忘了-Direct-Memory-Access" class="headerlink" title="别忘了  Direct Memory Access"></a>别忘了  Direct Memory Access</h2><p>Used for high-speed I/O devices able to transmit information at close to memory speeds</p>
+<p>被用在高速I/O设备上，使得可以近内存速度进行信息传输</p>
+<p>Device controller transfers blocks of data from buffer storage directly to main memory <strong>without CPU intervention</strong></p>
+<p>通过这种直接访问内存的方式，可以绕过cpu，从而让I/O更快</p>
+<p>Only one interrupt is generated <strong>per block</strong>, rather than the one interrupt per byte</p>
+<p>每读取一个数据块引发一次中断，而不是每个字节</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/27/shell编程初识/" itemprop="url">
                   shell编程初识
                 </a>
@@ -254,8 +384,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux-shell/" itemprop="url" rel="index">
-                    <span itemprop="name">linux/shell</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
                   </a>
                 </span>
 
@@ -462,7 +604,7 @@ fi
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -470,7 +612,7 @@ fi
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -479,7 +621,7 @@ fi
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

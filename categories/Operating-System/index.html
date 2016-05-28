@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shell,linux,空格,basic," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -57,40 +57,15 @@
 
 
 
-<meta name="description" content="捉弄人的空格今天做linux的shell编程实验发现，shell 中 if 判断句真是一个挺要注意的部分。
-比如
-if [ $1 = &amp;quot;n&amp;quot; ];then
-    asklist = n
-else
-    asklist = y
-fi
-‘if’和’[‘中括号之间、中括号和表达式之间要有空格，这是众所周知的。
-今天我发现如果表达式是一个等式判断，那么‘=’两端也需要空格，调试了半">
-<meta property="og:type" content="article">
-<meta property="og:title" content="shell编程初识">
-<meta property="og:url" content="zeal4u.github.io/2016/05/27/shell编程初识/index.html">
+<meta name="description" content="仅供自用">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zeal4u's House">
+<meta property="og:url" content="zeal4u.github.io/categories/Operating-System/index.html">
 <meta property="og:site_name" content="Zeal4u's House">
-<meta property="og:description" content="捉弄人的空格今天做linux的shell编程实验发现，shell 中 if 判断句真是一个挺要注意的部分。
-比如
-if [ $1 = &amp;quot;n&amp;quot; ];then
-    asklist = n
-else
-    asklist = y
-fi
-‘if’和’[‘中括号之间、中括号和表达式之间要有空格，这是众所周知的。
-今天我发现如果表达式是一个等式判断，那么‘=’两端也需要空格，调试了半">
-<meta property="og:updated_time" content="2016-05-28T08:04:34.680Z">
+<meta property="og:description" content="仅供自用">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell编程初识">
-<meta name="twitter:description" content="捉弄人的空格今天做linux的shell编程实验发现，shell 中 if 判断句真是一个挺要注意的部分。
-比如
-if [ $1 = &amp;quot;n&amp;quot; ];then
-    asklist = n
-else
-    asklist = y
-fi
-‘if’和’[‘中括号之间、中括号和表达式之间要有空格，这是众所周知的。
-今天我发现如果表达式是一个等式判断，那么‘=’两端也需要空格，调试了半">
+<meta name="twitter:title" content="Zeal4u's House">
+<meta name="twitter:description" content="仅供自用">
 
 
 
@@ -108,7 +83,7 @@ fi
   };
 </script>
 
-  <title> shell编程初识 | Zeal4u's House </title>
+  <title> 分类: Operating System | Zeal4u's House </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -129,7 +104,7 @@ fi
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,167 +202,47 @@ fi
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                shell编程初识
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-27T20:38:56+08:00" content="2016-05-27">
-              2016-05-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/shell/" itemprop="url" rel="index">
-                    <span itemprop="name">shell</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h3 id="捉弄人的空格"><a href="#捉弄人的空格" class="headerlink" title="捉弄人的空格"></a>捉弄人的空格</h3><p>今天做linux的shell编程实验发现，shell 中 if 判断句真是一个挺要注意的部分。</p>
-<p>比如</p>
-<pre><code>if [ $1 = &quot;n&quot; ];then
-    asklist = n
-else
-    asklist = y
-fi
-</code></pre><p>‘if’和’[‘中括号之间、中括号和表达式之间要有空格，这是众所周知的。</p>
-<p>今天我发现如果表达式是一个等式判断，那么<strong>‘=’</strong>两端也需要空格，调试了半天，着实头疼。如果写成了<code>$1=&quot;n&quot;</code>脚本是不会正常工作的，反而会被识别为赋值，从而导致错误的流程。</p>
-<p>shell中空格问题只是编程世界的一隅，在旧版本的c++中使用模板时也需要添加额外的空格，譬如 <code>vector&lt;vector&lt;int&gt; &gt;</code>，好在现在已经不需要这种“莫名的规矩”了。某些编译器可能仍需要以老式的声明方式来处理，需要注意。</p>
-<p>无独有偶，我昨天在配置博客时，也遇到了配置文件属性配置了却没有生效的问题，原因也是属性和之间虽然有<em>‘：’</em>相隔，但还是需要添加一个额外的空格才能使之生效。</p>
-<pre><code>deploy:
-  type: git #此处有一空格
-</code></pre><p>同样的为了让我这个博客的主题生效，所有md标题的’#’和内容之间也需要加一个空格，然而这不是一般的markdown所必须的。</p>
-
-      
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Operating System
+        <small>分类</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-      
-    </div>
+            <a class="post-title-link" href="/2016/05/28/I-O-Structure/" itemprop="url">
+              
+                <span itemprop="name">I/O Structure</span>
+              
+            </a>
+        
+      </h1>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/shell/" rel="tag">#shell</a>
-          
-            <a href="/tags/linux/" rel="tag">#linux</a>
-          
-            <a href="/tags/空格/" rel="tag">#空格</a>
-          
-            <a href="/tags/basic/" rel="tag">#basic</a>
-          
-        </div>
-      
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-05-28T15:32:38+08:00"
+              content="2016-05-28" >
+          05-28
+        </time>
+      </div>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/26/Hello/" rel="next" title="Hello">
-                <i class="fa fa-chevron-left"></i> Hello
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/28/I-O-Structure/" rel="prev" title="I/O Structure">
-                I/O Structure <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+
 
 
           </div>
@@ -395,10 +250,6 @@ fi
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -575,10 +426,6 @@ fi
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
-
-
 
   
 
