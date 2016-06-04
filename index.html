@@ -226,6 +226,183 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/30/CPU-Schedule-Strategies/" itemprop="url">
+                  CPU Schedule Strategies
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-30T10:50:45+08:00" content="2016-05-30">
+              2016-05-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Operating-System/" itemprop="url" rel="index">
+                    <span itemprop="name">Operating System</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Operating-System/CPU/" itemprop="url" rel="index">
+                    <span itemprop="name">CPU</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="CPU调度总结"><a href="#CPU调度总结" class="headerlink" title="CPU调度总结"></a>CPU调度总结</h3><h4 id="单队列"><a href="#单队列" class="headerlink" title="单队列"></a>单队列</h4><table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th style="text-align:center"></th>
+<th style="text-align:right"></th>
+<th style="text-align:right"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quantum \  Priority Criteria</td>
+<td style="text-align:center">Arrival Time</td>
+<td style="text-align:right">Cost Time</td>
+<td style="text-align:right">Behavior</td>
+</tr>
+<tr>
+<td>Finite</td>
+<td style="text-align:center">Round-Robin</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td>Infinite</td>
+<td style="text-align:center">First-Come-First-Serve</td>
+<td style="text-align:right">Shortest-Job-First</td>
+<td style="text-align:right">Priority Schedule</td>
+</tr>
+</tbody>
+</table>
+<p>note：</p>
+<ul>
+<li>SJF 有理论最小等待时间，但是因为任务运行需要预测，所以实际上是无法达到最优</li>
+<li>RR 时间片不能设置太小，否则系统开销（任务的交接（switch）和交换（swap））过大；也不能设置太大，导致响应时间过长，失去了RR的优势</li>
+<li>Priority Scheduling 可能导致Starvation，可以通过Aging方法解决</li>
+</ul>
+<h4 id="多级队列和多级反馈队列"><a href="#多级队列和多级反馈队列" class="headerlink" title="多级队列和多级反馈队列"></a>多级队列和多级反馈队列</h4><h5 id="多级队列"><a href="#多级队列" class="headerlink" title="多级队列"></a>多级队列</h5><p>将进程（任务）按类型分为两个或多个队列进行调度，队列之间是相互独立的</p>
+<ul>
+<li>foreground(interactive) RR - Round Robin</li>
+<li>background(batch) FCFS</li>
+</ul>
+<p>有两种模式</p>
+<ul>
+<li><p>Fixed Priority<br>先完成所有foreground然后再完成background，虽然响应速度快，可能导致Starvation</p>
+</li>
+<li><p>Time Slice 80% -&gt; Foreground  20%-&gt; Background</p>
+</li>
+</ul>
+<h5 id="多级反馈队列"><a href="#多级反馈队列" class="headerlink" title="多级反馈队列"></a>多级反馈队列</h5><p>与上面不同之处在于，进程（任务）可在队列之间移动；且高优先级进程完成后，低优先级进程才能运行</p>
+<p>比如： 有三个队列策略分别为</p>
+<ul>
+<li>Q<sub>0</sub> 6ms的RR，如果没有在6ms内完成则进入Q<sub>1</sub></li>
+<li>Q<sub>1</sub> 16ms的RR，没有完成抢占式进入Q<sub>2</sub></li>
+<li>Q<sub>2</sub> FCFS，留在本队列直到完成</li>
+</ul>
+<p>如下图所示</p>
+<img src="/2016/05/30/CPU-Schedule-Strategies/MLFBS.jpg" alt="MLFBS.jpg" title="">
+<h4 id="演化算法-Algorithm-Evaluation"><a href="#演化算法-Algorithm-Evaluation" class="headerlink" title="演化算法 Algorithm Evaluation"></a>演化算法 Algorithm Evaluation</h4><p>通过模拟数据试运行以上各种算法，自动选择最优方法</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/28/I-O-Structure/" itemprop="url">
                   I/O Structure
                 </a>
@@ -604,7 +781,7 @@ fi
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -612,7 +789,7 @@ fi
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -621,7 +798,7 @@ fi
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
