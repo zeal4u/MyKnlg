@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="operating system,basic," />
+  <meta name="keywords" content="IT, java, web" />
 
 
 
@@ -57,114 +57,15 @@
 
 
 
-<meta name="description" content="CPU调度总结单队列
-
-
-Criteria
-
-
-
-
-
-
-
-Quantum \  Priority Criteria
-Arrival Time
-Cost Time
-Behavior
-
-
-Finite
-Round-Robin
-
-
-
-
-Infinite
-First-Come-First-Serve
-Shortest-Job-First
-Priority Schedule
-
-
-
-note：
-
-SJF 有理">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CPU Schedule Strategies">
-<meta property="og:url" content="zeal4u.github.io/2016/05/30/CPU-Schedule-Strategies/index.html">
+<meta name="description" content="仅供自用">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zeal4u's House">
+<meta property="og:url" content="zeal4u.github.io/tags/spring/index.html">
 <meta property="og:site_name" content="Zeal4u's House">
-<meta property="og:description" content="CPU调度总结单队列
-
-
-Criteria
-
-
-
-
-
-
-
-Quantum \  Priority Criteria
-Arrival Time
-Cost Time
-Behavior
-
-
-Finite
-Round-Robin
-
-
-
-
-Infinite
-First-Come-First-Serve
-Shortest-Job-First
-Priority Schedule
-
-
-
-note：
-
-SJF 有理">
-<meta property="og:image" content="zeal4u.github.io/2016/05/30/CPU-Schedule-Strategies/MLFBS.jpg">
-<meta property="og:updated_time" content="2016-05-30T02:57:17.726Z">
+<meta property="og:description" content="仅供自用">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CPU Schedule Strategies">
-<meta name="twitter:description" content="CPU调度总结单队列
-
-
-Criteria
-
-
-
-
-
-
-
-Quantum \  Priority Criteria
-Arrival Time
-Cost Time
-Behavior
-
-
-Finite
-Round-Robin
-
-
-
-
-Infinite
-First-Come-First-Serve
-Shortest-Job-First
-Priority Schedule
-
-
-
-note：
-
-SJF 有理">
-<meta name="twitter:image" content="zeal4u.github.io/2016/05/30/CPU-Schedule-Strategies/MLFBS.jpg">
+<meta name="twitter:title" content="Zeal4u's House">
+<meta name="twitter:description" content="仅供自用">
 
 
 
@@ -182,7 +83,7 @@ SJF 有理">
   };
 </script>
 
-  <title> CPU Schedule Strategies | Zeal4u's House </title>
+  <title> 标签: spring | Zeal4u's House </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -203,7 +104,7 @@ SJF 有理">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -301,207 +202,46 @@ SJF 有理">
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                CPU Schedule Strategies
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-30T10:50:45+08:00" content="2016-05-30">
-              2016-05-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Operating-System/" itemprop="url" rel="index">
-                    <span itemprop="name">Operating System</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Operating-System/CPU/" itemprop="url" rel="index">
-                    <span itemprop="name">CPU</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h3 id="CPU调度总结"><a href="#CPU调度总结" class="headerlink" title="CPU调度总结"></a>CPU调度总结</h3><h4 id="单队列"><a href="#单队列" class="headerlink" title="单队列"></a>单队列</h4><table>
-<thead>
-<tr>
-<th>Criteria</th>
-<th style="text-align:center"></th>
-<th style="text-align:right"></th>
-<th style="text-align:right"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Quantum \  Priority Criteria</td>
-<td style="text-align:center">Arrival Time</td>
-<td style="text-align:right">Cost Time</td>
-<td style="text-align:right">Behavior</td>
-</tr>
-<tr>
-<td>Finite</td>
-<td style="text-align:center">Round-Robin</td>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-</tr>
-<tr>
-<td>Infinite</td>
-<td style="text-align:center">First-Come-First-Serve</td>
-<td style="text-align:right">Shortest-Job-First</td>
-<td style="text-align:right">Priority Schedule</td>
-</tr>
-</tbody>
-</table>
-<p>note：</p>
-<ul>
-<li>SJF 有理论最小等待时间，但是因为任务运行需要预测，所以实际上是无法达到最优</li>
-<li>RR 时间片不能设置太小，否则系统开销（任务的交接（switch）和交换（swap））过大；也不能设置太大，导致响应时间过长，失去了RR的优势</li>
-<li>Priority Scheduling 可能导致Starvation，可以通过Aging方法解决</li>
-</ul>
-<h4 id="多级队列和多级反馈队列"><a href="#多级队列和多级反馈队列" class="headerlink" title="多级队列和多级反馈队列"></a>多级队列和多级反馈队列</h4><h5 id="多级队列"><a href="#多级队列" class="headerlink" title="多级队列"></a>多级队列</h5><p>将进程（任务）按类型分为两个或多个队列进行调度，队列之间是相互独立的</p>
-<ul>
-<li>foreground(interactive) RR - Round Robin</li>
-<li>background(batch) FCFS</li>
-</ul>
-<p>有两种模式</p>
-<ul>
-<li><p>Fixed Priority<br>先完成所有foreground然后再完成background，虽然响应速度快，可能导致Starvation</p>
-</li>
-<li><p>Time Slice 80% -&gt; Foreground  20%-&gt; Background</p>
-</li>
-</ul>
-<h5 id="多级反馈队列"><a href="#多级反馈队列" class="headerlink" title="多级反馈队列"></a>多级反馈队列</h5><p>与上面不同之处在于，进程（任务）可在队列之间移动；且高优先级进程完成后，低优先级进程才能运行</p>
-<p>比如： 有三个队列策略分别为</p>
-<ul>
-<li>Q<sub>0</sub> 6ms的RR，如果没有在6ms内完成则进入Q<sub>1</sub></li>
-<li>Q<sub>1</sub> 16ms的RR，没有完成抢占式进入Q<sub>2</sub></li>
-<li>Q<sub>2</sub> FCFS，留在本队列直到完成</li>
-</ul>
-<p>如下图所示</p>
-<img src="/2016/05/30/CPU-Schedule-Strategies/MLFBS.jpg" alt="MLFBS.jpg" title="">
-<h4 id="演化算法-Algorithm-Evaluation"><a href="#演化算法-Algorithm-Evaluation" class="headerlink" title="演化算法 Algorithm Evaluation"></a>演化算法 Algorithm Evaluation</h4><p>通过模拟数据试运行以上各种算法，自动选择最优方法</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        spring
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-      
-    </div>
+            <a class="post-title-link" href="/2016/08/23/基于spring-boot-starter框架的网站搭建经验/" itemprop="url">
+              
+                <span itemprop="name">基于spring-boot-starter框架的网站搭建经验</span>
+              
+            </a>
+        
+      </h1>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/operating-system/" rel="tag">#operating system</a>
-          
-            <a href="/tags/basic/" rel="tag">#basic</a>
-          
-        </div>
-      
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-08-23T13:16:39+08:00"
+              content="2016-08-23" >
+          08-23
+        </time>
+      </div>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/28/I-O-Structure/" rel="next" title="I/O Structure">
-                <i class="fa fa-chevron-left"></i> I/O Structure
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/10/云计算二度人脉实验记/" rel="prev" title="云计算二度人脉实验记">
-                云计算二度人脉实验记 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -509,10 +249,6 @@ SJF 有理">
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -682,10 +418,6 @@ SJF 有理">
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
-
-
 
   
 
