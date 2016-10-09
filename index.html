@@ -226,6 +226,111 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/09/386-Lexicographical-Numbers/" itemprop="url">
+                  386. Lexicographical Numbers
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-09T08:39:18+08:00" content="2016-10-09">
+              2016-10-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/09/386-Lexicographical-Numbers/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/386-Lexicographical-Numbers/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="386-Lexicographical-Numbers"><a href="#386-Lexicographical-Numbers" class="headerlink" title="386. Lexicographical Numbers"></a>386. Lexicographical Numbers</h3><p>在leetcode的weekly contest上看到一个整数的字典序排序问题，觉得很有趣。<br>以往的对整数的排序都是追求空间和时间效率，目的一般都是达到升序或者降序，而字典序多用于对字符串的排序，我觉得很有趣，姑且研究下。<br>以下是原题：  </p>
+<p>`Given an integer n, return 1 - n in lexicographical order.</p>
+<p>For example, given 13, return: [1,10,11,12,13,2,3,4,5,6,7,8,9].</p>
+<p>Please optimize your algorithm to use less time and space. The input size may be as large as 5,000,000.`</p>
+<p>题目要求很简答，就不赘述了。</p>
+<p>我先自己尝试想了一下，最后还是没法想出合适的办法。但思路是获取n的数位个数，将低于其数位的数和同数位的数分别处理。终于看了discuss中大神StefanPochman的方法，顿时觉得人与人之间的差距怎么这么大。</p>
+<p>就这个题目来说，将整数转化为字符串，然后使用大部分语言都有的对字符串进行字典排序的方法看来是不行了。<br>大神尝试了三种方法，都大同小异<br><figure class="highlight plain"><figcaption><span>History.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def lexicalOrder(self, n):</span><br><span class="line">    return sorted(range(1, n+1), key=str)</span><br><span class="line"></span><br><span class="line">def lexicalOrder(self, n):</span><br><span class="line">    return sorted(range(1, n+1), lambda a, b: cmp(str(a), str(b)))</span><br><span class="line"></span><br><span class="line">def lexicalOrder(self, n):</span><br><span class="line">    return map(int, sorted(map(str, xrange(1, n+1))))</span><br></pre></td></tr></table></figure><br>得到的结果不是”Memory Limit Exceeded!”，就是”Time Limit Exceeded!”，这也是可想而知。<br>通过实践证明这条路行不通了！</p>
+<h4 id="最终方法"><a href="#最终方法" class="headerlink" title="最终方法"></a>最终方法</h4><p>大神提供了三种解决方法，但其核心思想都是一样的。那么贴出最终优化版<br><figure class="highlight plain"><figcaption><span>Solution.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def lexicalOrder(self, n):</span><br><span class="line">    highDigit = 1</span><br><span class="line">    while highDigit * 10 &lt;= n: # 获取n的最高位值</span><br><span class="line">        highDigit *= 10</span><br><span class="line">    higherDigit = highDigit * 10 # 比n大1位的位值</span><br><span class="line">    withKeys = []</span><br><span class="line">    for i in xrange(1, n+1):</span><br><span class="line">        key = i</span><br><span class="line">        while key &lt; highDigit: # 相当于将所有的1~n的数字都补位到与n相同位数</span><br><span class="line">            key *= 10</span><br><span class="line">        withKeys.append(key * higherDigit + i) # 原先数字的信息被保留在i当中</span><br><span class="line">    withKeys.sort()</span><br><span class="line">    return [ki % higherDigit for ki in withKeys] # 对原先的数进行还原</span><br></pre></td></tr></table></figure></p>
+<p>在经过研究后，我觉得这其中的核心思想是<strong>将字典序转化成大小排序的问题</strong><br>举一个实例获取更容易理解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">when n = 104</span><br><span class="line">highDigit = 100</span><br><span class="line">higherDigit = 1000</span><br><span class="line"></span><br><span class="line">so, after the process</span><br><span class="line">1 =&gt; 100,001</span><br><span class="line">10 =&gt; 100,010</span><br><span class="line">2 =&gt; 200,002</span><br><span class="line">32 =&gt; 320,032</span><br><span class="line">101 =&gt; 101,101</span><br><span class="line"></span><br><span class="line">then, they are sorted </span><br><span class="line">finally, every number is converted to original</span><br><span class="line">amazing!</span><br></pre></td></tr></table></figure><br>这样做确实做到了从左往右比较的目的，而这恰好就是字典序所需要的。关键就在于对数字进行补位，位置补齐就可以很自然的进行大小比较，其效果等同于一位位对应的比较。<br>但是光是这样还不够，如果只是进行补位操作的话，那么1，10，100将无法比较“大小”，而且无法进行还原（实际上所有以零结尾的数字都没有办法还原）。所以在上面的基础上，大神将补位后的数乘以一个更高位值，此例中为1000，那么就可以很好的将原始数值保存在最后三位，并可以通过取模操作很容易就还原，同时还区分了1,10,100等数值的“大小”，可谓一石二鸟。  </p>
+<h4 id="我从此排序问题中获得的经验是：所有的排序都可以化为对元素“大小”进行比较"><a href="#我从此排序问题中获得的经验是：所有的排序都可以化为对元素“大小”进行比较" class="headerlink" title="我从此排序问题中获得的经验是：所有的排序都可以化为对元素“大小”进行比较"></a><strong>我从此排序问题中获得的经验是：所有的排序都可以化为对元素“大小”进行比较</strong></h4><p>文末再拜服。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/23/基于spring-boot-starter框架的网站搭建经验/" itemprop="url">
                   基于spring-boot-starter框架的网站搭建经验
                 </a>
@@ -1101,7 +1206,7 @@ fi
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1118,7 +1223,7 @@ fi
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
